@@ -13,8 +13,10 @@ export default function Home() {
 
       <Header />
       <div className={styles.banner}>
-        <div>
+        <div className={styles.textContainer}>
           <h2 className={styles.bannerHeader}>Stay curious.</h2>
+          <p className={styles.bannerText}>Discover stories, thinking, and expertise from writers on any topic.</p>
+          <div className={styles.button}>Start Reading</div>
         </div>
       </div>
     </div>
