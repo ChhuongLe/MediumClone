@@ -35,10 +35,10 @@
 .logoImage {
   margin-left: auto;
   margin-right: 0;
-  width: auto;
+  width: 40%;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 975px) {
   .logoImage {
     display: none;
   }

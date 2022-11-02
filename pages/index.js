@@ -20,6 +20,8 @@ export default function Home() {
         </div>
         <img className={styles.logoImage}src="https://accountabilitylab.org/wp-content/uploads/2020/03/Medium-logo.png" alt=""/>
       </div>
+
+      {/* add posts here */}
     </div>
   )
 }
