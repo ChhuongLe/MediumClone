@@ -18,6 +18,7 @@ export default function Home() {
           <p className={styles.bannerText}>Discover stories, thinking, and expertise from writers on any topic.</p>
           <div className={styles.button}>Start Reading</div>
         </div>
+        <img className={styles.logoImage}src="https://accountabilitylab.org/wp-content/uploads/2020/03/Medium-logo.png" alt=""/>
       </div>
     </div>
   )

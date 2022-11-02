@@ -1,5 +1,6 @@
 .banner {
   background-color: #ffc017;
+  display: flex;
 }
 .textContainer{
   margin-left: 45px;
@@ -13,17 +14,32 @@
 .bannerText {
   font-size: 24px;
   font-family: Arial;
-  width: 400px;
+  width: 380px;
   margin-top: -50px;
   padding-bottom: 30px;
   font-weight: 100;
 }
 
 .button {
-  border: 1px solid gray;
+  border: 1px solid #191919;
   color: white;
-  background-color: gray;;
-  width: 88px;
-  padding: 5px 10px;
+  background-color: #191919;;
+  padding: 9px 45px;
   border-radius: 20px;
+  font-family: Arial;
+  font-weight: 500;
+  font-size: 20px;
+  width: 124px;
+}
+
+.logoImage {
+  margin-left: auto;
+  margin-right: 0;
+  width: auto;
+}
+
+@media (max-width: 1000px) {
+  .logoImage {
+    display: none;
+  }
 }
