@@ -21,3 +21,4 @@ Naviagte to medium-clone folder. Then run:
 ```bash
 sanity start
 ```
+Open [http://localhost:3333](http://localhost:3333) with your browser to view the server
