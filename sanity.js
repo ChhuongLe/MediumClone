@@ -1,8 +1,8 @@
 import {
-  createImageUrlbuilder,
   createCurrentUserHook,
   createClient
 } from 'next-sanity';
+import createImageUrlbuilder from '@sanity/image-url';
 // lib/config.js
 export const config = {
   /**
@@ -21,17 +21,10 @@ export const config = {
    * Authenticated request (like preview) will always bypass the CDN
    **/
   useCdn: process.env.NODE_ENV === 'production',
-
-  /**
-   * OPTIONAL config to enable authentication with custom token
-   * You might need this if you host the preview on a different url than Sanity Studio
-   */
-  token: '<sanity access token>',
-  EventSource: /* provide your own event source implementation. Required in browsers to support the above token parameter. */
 }
 
 // set up client for fetching data in the getProps page functions
 export const sanityClient = createClient(config);
 
 // set up helper function for generating Image URLS
-export const urlFor = (sorce) => createImageUrlbuilder(config).image(source);
+export const urlFor = (source) => createImageUrlbuilder(config).image(source);
