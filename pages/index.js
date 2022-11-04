@@ -12,14 +12,14 @@ export default function Home(props) {
     console.log(post);
     return (
       <Link className={styles.linkStyle} key={post._id} href={`/post/${post.slug.current}`}>
-        <img className="" src={urlFor(post.mainImage).url()} alt='' />
-         <div >
-            <div className={styles.descriptionContainer}>
-              <p className={styles.descriptor}>{post.title}</p>
-              <p className={styles.descriptor}>{post.description} by {post.author.name}</p>
-            </div>
-            <img className={styles.authorImage} src={urlFor(post.author.image).url()} alt=""/>
-         </div>
+        <div className={styles.group}>
+          <img className={styles.mainImage} src={urlFor(post.mainImage).url()} alt='' />
+          <div className={styles.descriptionContainer}>
+            <p className={styles.descriptor}>{post.title}</p>
+            <p className={styles.descriptor}>{post.description} by {post.author.name}</p>
+          </div>
+          <img className={styles.authorImage} src={urlFor(post.author.image).url()} alt=""/>
+        </div>
       </Link>)
   });
 
@@ -38,7 +38,7 @@ export default function Home(props) {
         </div>
         <img className={styles.logoImage}src="https://accountabilitylab.org/wp-content/uploads/2020/03/Medium-logo.png" alt=""/>
       </div>
-      <div>{postMap}</div>
+      <div className={styles.postsContainer}>{postMap}</div>
     </div>
   )
 }
