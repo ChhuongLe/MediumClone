@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-Before running the app, make sure to have all the dependencies installed. To this, run:
+Before running the app, make sure to have all the dependencies installed. To do this, run:
 ```bash
 npm install
 ```
