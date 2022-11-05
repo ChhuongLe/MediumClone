@@ -8,17 +8,20 @@ import { sanityClient, urlFor } from '../sanity';
 export default function Home(props) {
   let posts = props.posts;
 
+  /*Traverse through the posts array and assign*/
   let postMap = posts.map((post)=> {
-    console.log(post);
     return (
       <Link className={styles.linkStyle} key={post._id} href={`/post/${post.slug.current}`}>
         <div className={styles.group}>
           <img className={styles.mainImage} src={urlFor(post.mainImage).url()} alt='' />
           <div className={styles.descriptionContainer}>
             <p className={styles.descriptor}>{post.title}</p>
-            <p className={styles.descriptor}>{post.description} by {post.author.name}</p>
+            <p className={styles.descriptor}>{post.description}</p>
           </div>
-          <img className={styles.authorImage} src={urlFor(post.author.image).url()} alt=""/>
+          <div className={styles.authorContainer}>
+            <p className={styles.authorName}>{post.author.name}</p>
+            <img className={styles.authorImage} src={urlFor(post.author.image).url()} alt=""/>
+          </div>
         </div>
       </Link>)
   });
