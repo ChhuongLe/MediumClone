@@ -1,7 +1,10 @@
-import { sanityClient, urlFor } from '../sanity';
+import { sanityClient, urlFor } from '../../sanity';
 import Header from '../../components/Header';
 
-function Post() {
+
+function Post(props) {
+  const post = props.post;
+  console.log(post);
   return <main>
     <Header />
   </main>
@@ -31,6 +34,34 @@ export const getStaticPaths = async () => {
   }
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ params }) => {
+  const query = `*[_type == "post" && slug.current == $slug][0]{
+    _id,
+    _createdAt,
+    title,
+    author->{
+    name,
+    image
+   },
+   description,
+   mainImage,
+   slug,
+   body
+  }`
 
+  const post = await sanityClient.fetch(query, {
+    slug: params.slug,
+  });
+
+  if(!post) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props:{
+      post,
+    }
+  }
 }
