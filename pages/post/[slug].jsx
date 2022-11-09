@@ -1,5 +1,5 @@
 import { sanityClient, urlFor } from '../sanity';
-import 
+import Header from '../../components/Header';
 
 function Post() {
   return <main>
@@ -31,4 +31,6 @@ export const getStaticPaths = async () => {
   }
 }
 
-export const getStaticProps
+export const getStaticProps = async () => {
+
+}
