@@ -1,0 +1,18 @@
+.mainImage {
+  width: 100vw;
+  height: 300px;
+  object-fit: cover;
+}
+
+.articleContainer {
+  font-family: Arial;;
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  justify-content: center;
+}
+
+.postDescription {
+  font-weight: 300;
+  color: gray;
+}
