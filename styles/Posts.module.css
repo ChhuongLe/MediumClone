@@ -2,6 +2,11 @@
   font-family: Arial;
 }
 
+.postContent {
+  margin-left: 15vw;
+  margin-right: 15vw;
+}
+
 .mainImage {
   width: 100vw;
   height: 300px;
@@ -9,11 +14,11 @@
 }
 
 .articleContainer {
-  font-family: Arial;;
+  margin-top: 25px;
+  font-family: Arial;
   display: flex;
   flex-direction: column;
   max-width: 70%;
-  justify-content: center;
 }
 
 .postDescription {
@@ -34,5 +39,9 @@
 }
 
 .authorName {
-  color: #191919;
+  color: green;
+}
+
+.pText {
+  font-size: 300px;
 }
