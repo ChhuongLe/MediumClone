@@ -12,7 +12,6 @@ function Post(props) {
       <article className={styles.articleContainer}>
         <h1 style={{fontSize:"50px", fontWeight:"400", marginBottom:"-5px"}}>{post.title}</h1>
         <h3 className={styles.postDescription}>{post.description}</h3>
-      </article>
       <div className={styles.authorContainer}>
         <img style={{width: "50px", borderRadius:"50%", marginRight:"-10px", marginBottom:"30px"}} src={urlFor(post.author.image).url()}/>
         <p className={styles.authorInfo}>
@@ -27,7 +26,26 @@ function Post(props) {
           content={post.body}
         />
       </div>
+      </article>
     </div>
+    <hr style={{marginLeft: "200px", marginRight: "200px", border:"#ffc017 2px solid"}}/>
+
+    <form className={styles.formContainer}>
+      <h3>Enjoyed the article?</h3>
+      <h4>Leave a comment below!</h4>
+      <label style={{padding: "10px", display:"block"}}>
+        <span style={{color: "#5A5A5A"}}>Name:</span>
+        <input style={{border: "0"}} placeholder="Name..." type="text"/>
+      </label>
+      <label style={{padding: "10px", display:"block"}}>
+        <span style={{color: "#5A5A5A"}}>Email:</span>
+        <input style={{border: "0"}} placeholder="Email..." type="text"/>
+      </label>
+      <label style={{display:"block"}}>
+        <span>Comment:</span>
+        <textarea style={{border: "0", fontFamily:"Arial"}}placeholder="Comment..." type="text" rows={8}/>
+      </label>
+    </form>
   </main>
 }
 

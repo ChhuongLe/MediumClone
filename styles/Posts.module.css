@@ -3,8 +3,7 @@
 }
 
 .postContent {
-  margin-left: 15vw;
-  margin-right: 15vw;
+  justify-content: center;
 }
 
 .mainImage {
@@ -18,7 +17,8 @@
   font-family: Arial;
   display: flex;
   flex-direction: column;
-  max-width: 70%;
+  margin-left: 13%;
+  margin-right: 13%;
 }
 
 .postDescription {
@@ -44,4 +44,11 @@
 
 .pText {
   font-size: 300px;
+}
+
+.formContainer {
+  font-family: Arial;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
 }
