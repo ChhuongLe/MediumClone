@@ -1,3 +1,7 @@
+.postContainer {
+  font-family: Arial;
+}
+
 .mainImage {
   width: 100vw;
   height: 300px;
@@ -14,5 +18,21 @@
 
 .postDescription {
   font-weight: 300;
+  color: #5A5A5A;
+}
+
+.authorContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.authorInfo {
+  margin-left: 20px;
+  font-size: 15px;
   color: gray;
+}
+
+.authorName {
+  color: #191919;
 }

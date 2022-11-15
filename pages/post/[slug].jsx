@@ -1,11 +1,12 @@
 import { sanityClient, urlFor } from '../../sanity';
 import Header from '../../components/Header';
 import styles from '../../styles/Posts.module.css';
+import stylesHome from '../../styles/Home.module.css';
+import PortableText from 'react-portable-text';
 
 function Post(props) {
   const post = props.post;
-  console.log(post);
-  return <main>
+  return <main className={styles.postContainer}>
     <Header />
     <img className={styles.mainImage} src={urlFor(post.mainImage).url()} alt=""/>
 
@@ -13,9 +14,19 @@ function Post(props) {
       <h1>{post.title}</h1>
       <h3 className={styles.postDescription}>{post.description}</h3>
     </article>
+    <div className={styles.authorContainer}>
+      <img className={stylesHome.authorImage} src={urlFor(post.author.image).url()}/>
+      <p className={styles.authorInfo}>
+        Blog post by {"    "}
+        <span className={styles.authorName}>{post.author.name}</span> - Published at {new Date(post._createdAt).toLocaleString()}
+      </p>
+    </div>
     <div>
-      <img src={urlFor(post.author.image).url()}/>
-      <p>Blog post by {post.author.name} - Published at {new Date(post._createdAt).toLocaleString()}</p>
+      <PortableText
+        dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
+        projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+        content={post.body}
+      />
     </div>
   </main>
 }
