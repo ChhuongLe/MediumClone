@@ -2,8 +2,10 @@ import { sanityClient, urlFor } from '../../sanity';
 import Header from '../../components/Header';
 import styles from '../../styles/Posts.module.css';
 import PortableText from 'react-portable-text';
+import { userForm, submitHandler } from "react-hook-form";
 
 function Post(props) {
+  const { register, handleSubmit, formState } = useForm();
   const post = props.post;
   return <main className={styles.postContainer}>
     <Header />
@@ -29,10 +31,12 @@ function Post(props) {
       </article>
     </div>
     <hr style={{marginLeft: "200px", marginRight: "200px", border:"#ffc017 2px solid"}}/>
-
+    <div style={{marginLeft:"20%", marginRight:"20%"}}>
+      <h3 style={{color: "#ffc017 ", fontSize: "16px", marginBottom: "-20px"}}>Enjoyed the article?</h3>
+      <h1>Leave a comment below!</h1>
+      <hr style={{border: "1px solid rgba(90, 90, 90, 0.1)", marginTop:"-15px"}}/>
+    </div>
     <form className={styles.formContainer}>
-      <h3>Enjoyed the article?</h3>
-      <h4>Leave a comment below!</h4>
       <label className={styles.labelStyle}>
         <span className={styles.commentSpanStyle}>Name:</span> <br />
         <input className={styles.inputStyle} placeholder="Name..." type="text"/>
