@@ -17,8 +17,8 @@
   font-family: Arial;
   display: flex;
   flex-direction: column;
-  margin-left: 13%;
-  margin-right: 13%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 .postDescription {
@@ -51,4 +51,32 @@
   display: flex;
   flex-direction: column;
   padding: 5px;
+  align-items: right;
+  margin-left: 27%;
+  margin-right: 30%;
+  justify-content: space-between;
 }
+
+.labelStyle {
+  padding: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.commentSpanStyle {
+  color: #5A5A5A;
+}
+
+.inputStyle {
+  font-family: Arial;
+  border: 0;
+  box-shadow: 5px 5px 10px #5A5A5A;
+  border-radius: 3px;
+  width: 100%;
+  padding: 15px;
+}
+
+/* .inputStyle:focus {
+  border-color: #ffc017;
+  outline: 1;
+} */

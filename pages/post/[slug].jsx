@@ -33,17 +33,17 @@ function Post(props) {
     <form className={styles.formContainer}>
       <h3>Enjoyed the article?</h3>
       <h4>Leave a comment below!</h4>
-      <label style={{padding: "10px", display:"block"}}>
-        <span style={{color: "#5A5A5A"}}>Name:</span>
-        <input style={{border: "0"}} placeholder="Name..." type="text"/>
+      <label className={styles.labelStyle}>
+        <span className={styles.commentSpanStyle}>Name:</span> <br />
+        <input className={styles.inputStyle} placeholder="Name..." type="text"/>
       </label>
-      <label style={{padding: "10px", display:"block"}}>
-        <span style={{color: "#5A5A5A"}}>Email:</span>
-        <input style={{border: "0"}} placeholder="Email..." type="text"/>
+      <label className={styles.labelStyle}>
+        <span className={styles.commentSpanStyle}>Email:</span> <br />
+        <input className={styles.inputStyle} placeholder="Email..." type="text"/>
       </label>
-      <label style={{display:"block"}}>
-        <span>Comment:</span>
-        <textarea style={{border: "0", fontFamily:"Arial"}}placeholder="Comment..." type="text" rows={8}/>
+      <label className={styles.labelStyle}>
+        <span className={styles.commentSpanStyle}>Comment:</span> <br />
+        <textarea className={styles.inputStyle} placeholder="Comment..." type="text" rows={8}/>
       </label>
     </form>
   </main>
