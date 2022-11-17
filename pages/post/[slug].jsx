@@ -2,10 +2,13 @@ import { sanityClient, urlFor } from '../../sanity';
 import Header from '../../components/Header';
 import styles from '../../styles/Posts.module.css';
 import PortableText from 'react-portable-text';
-import { userForm, submitHandler } from "react-hook-form";
+import { useForm, submitHandler } from "react-hook-form";
+import { ErrorMessage } from '@hookform/error-message';
 
 function Post(props) {
-  const { register, handleSubmit, formState } = useForm();
+  const { register, handleSubmit, formState: {errors} } = useForm();
+  onSubmit = data => console.log(data);
+
   const post = props.post;
   return <main className={styles.postContainer}>
     <Header />
@@ -37,17 +40,29 @@ function Post(props) {
       <hr style={{border: "1px solid rgba(90, 90, 90, 0.1)", marginTop:"-15px"}}/>
     </div>
     <form className={styles.formContainer}>
+      <input
+        {...register("id", {required: "true"})}
+        type="hidden" name="_id"
+        value={post.id} />
       <label className={styles.labelStyle}>
         <span className={styles.commentSpanStyle}>Name:</span> <br />
-        <input className={styles.inputStyle} placeholder="Name..." type="text"/>
+        <input {...register("name"), {required: "true"}}
+          className={styles.inputStyle}
+          placeholder="Name..."
+          type="text"
+        />
       </label>
       <label className={styles.labelStyle}>
         <span className={styles.commentSpanStyle}>Email:</span> <br />
-        <input className={styles.inputStyle} placeholder="Email..." type="text"/>
+        <input {...register("email"), {required: "true"}}
+          className={styles.inputStyle}
+          placeholder="Email..."
+          type="text"
+        />
       </label>
       <label className={styles.labelStyle}>
         <span className={styles.commentSpanStyle}>Comment:</span> <br />
-        <textarea className={styles.inputStyle} placeholder="Comment..." type="text" rows={8}/>
+        <textarea {...register("comment"), {required: true}} className={styles.inputStyle} placeholder="Comment..." type="text" rows={8}/>
       </label>
     </form>
   </main>
