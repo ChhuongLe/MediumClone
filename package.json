@@ -13,14 +13,17 @@
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
+    "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
+    "client": "0.0.1",
     "gh-pages": "^4.0.0",
     "next": "13.0.0",
     "next-sanity": "^1.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.39.4",
-    "react-portable-text": "^0.5.1"
+    "react-portable-text": "^0.5.1",
+    "sanity": "^2.33.2"
   },
   "devDependencies": {
     "eslint": "8.26.0",

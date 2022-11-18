@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { sanityClient, urlFor } from '../../sanity';
 import Header from '../../components/Header';
 import styles from '../../styles/Posts.module.css';
@@ -13,8 +14,22 @@ function Post(props) {
       comment: ''
     }
   });
+  const [submitted, setSubmitted] = useState(false);
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async(data) =>{
+    await fetch('/api/createComment', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    })
+    .then(() => {
+      console.log(data);
+      setSubmitted(true);
+    })
+    .catch((err)=> {
+      console.log(err);
+      setSubmitted(false);
+    })
+  };
 
   const post = props.post;
   return (
@@ -42,59 +57,66 @@ function Post(props) {
         </article>
       </div>
       <hr style={{marginLeft: "200px", marginRight: "200px", border:"#ffc017 2px solid"}}/>
-      <div style={{marginLeft:"20%", marginRight:"20%"}}>
-        <h3 style={{color: "#ffc017 ", fontSize: "16px", marginBottom: "-20px"}}>Enjoyed the article?</h3>
-        <h1>Leave a comment below!</h1>
-        <hr style={{border: "1px solid rgba(90, 90, 90, 0.1)", marginTop:"-15px"}}/>
-      </div>
-      <form  onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
-        {/*Hidden parameter that embeds an id that is specific to the current page*/}
-        <input
-          {...register("id", { required: true })}
-            type="hidden" name="_id"
-            value={post._id}
-        />
-
-        <label className={styles.labelStyle}>
-          <span className={styles.commentSpanStyle}>Name:</span> <br />
-          <input {...register("name", {required: true})}
-            className={styles.inputStyle}
-            placeholder="Name..."
-            type="text"
-          />
-        </label>
-        <label className={styles.labelStyle}>
-          <span className={styles.commentSpanStyle}>Email:</span> <br />
-          <input {...register("email", {required: "true"})}
-            className={styles.inputStyle}
-            placeholder="Email..."
-            type="text"
-            type="email"
-          />
-        </label>
-        <label className={styles.labelStyle}>
-          <span className={styles.commentSpanStyle}>Comment:</span> <br />
-          <textarea {...register("comment", {required: true})}
-            className={styles.inputStyle}
-            placeholder="Comment..."
-            type="text"
-            rows={8}
-          />
-        </label>
-        {/* Return errors when validation fails */}
-        <div style={{display: "flex", flexDirection:"column"}}>
-          {errors.name && (
-            <span style={{color: "red"}}>- The name field is requried</span>
-          )}
-          {errors.comment && (
-            <span style={{color: "red"}}>- The comment field is required</span>
-          )}
-          {errors.email && (
-            <span style={{color: "red"}}>- The email field is required</span>
-          )}
+      {submitted ? (
+        <div className={styles.submitStyle}>
+          <h3 style={{marginLeft: "50px", fontSize: "30px"}}>Thank you for your comment!</h3>
+          <p style={{marginLeft: "50px", fontSize: "17px", marginTop: "-20px"}}>Once it has been approved, it will appear below!</p>
         </div>
-        <input type="submit"/>
-      </form>
+      ) : (
+          <form  onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
+          <div style={{marginLeft: "-40px", marginBottom: "20px"}}>
+            <h3 style={{color: "#ffc017 ", fontSize: "16px", marginBottom: "-20px"}}>Enjoyed the article?</h3>
+            <h1>Leave a comment below!</h1>
+            <hr style={{border: "1px solid rgba(90, 90, 90, 0.1)", marginTop:"-15px"}}/>
+          </div>
+          {/*Hidden parameter that embeds an id that is specific to the current page*/}
+          <input
+            {...register("_id", { required: true })}
+              type="hidden" name="_id"
+              value={post._id}
+          />
+          <label className={styles.labelStyle}>
+            <span className={styles.commentSpanStyle}>Name:</span> <br />
+            <input {...register("name", {required: true})}
+              className={styles.inputStyle}
+              placeholder="Name..."
+              type="text"
+            />
+          </label>
+          <label className={styles.labelStyle}>
+            <span className={styles.commentSpanStyle}>Email:</span> <br />
+            <input {...register("email", {required: "true"})}
+              className={styles.inputStyle}
+              placeholder="Email..."
+              type="text"
+              type="email"
+            />
+          </label>
+          <label className={styles.labelStyle}>
+            <span className={styles.commentSpanStyle}>Comment:</span> <br />
+            <textarea {...register("comment", {required: true})}
+              className={styles.inputStyle}
+              placeholder="Comment..."
+              type="text"
+              rows={8}
+            />
+          </label>
+          {/* Return errors when validation fails */}
+          <div style={{display: "flex", flexDirection:"column"}}>
+            {errors.name && (
+              <span style={{color: "red"}}>- The name field is requried</span>
+            )}
+            {errors.comment && (
+              <span style={{color: "red"}}>- The comment field is required</span>
+            )}
+            {errors.email && (
+              <span style={{color: "red"}}>- The email field is required</span>
+            )}
+          </div>
+          <input className={styles.buttonStyle} type="submit"/>
+        </form>
+        )
+      }
   </main>
   );
 }
