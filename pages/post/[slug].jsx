@@ -120,8 +120,8 @@ function Post(props) {
       <div className={styles.commentContainer}>
         <h3 style={{fontSize:"30px", marginBottom:"-5px"}}>Comments</h3>
         <hr style={{border:"1px solid rgba(90, 90, 90, 0.1)"}}/>
-        {post.comments.map((comment)=>{ return (
-          <div>
+        {post.comments.map((comment, index)=>{ return (
+          <div key={index}>
             <p style={{paddingBottom: "10px"}}><span style={{color:"#ffc007"}}>{comment.name}:</span> {comment.comment}</p>
           </div>
         )

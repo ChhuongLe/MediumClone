@@ -7,7 +7,6 @@ import { sanityClient, urlFor } from '../sanity';
 
 export default function Home(props) {
   let posts = props.posts;
-  console.log(posts);
 
   /*Traverse through the posts array and assign*/
   let postMap = posts.map((post)=> {
