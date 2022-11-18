@@ -7,7 +7,7 @@ import { ErrorMessage } from '@hookform/error-message';
 
 function Post(props) {
   const { register, handleSubmit, formState: {errors} } = useForm();
-  onSubmit = data => console.log(data);
+  // onSubmit = data => console.log(data);
 
   const post = props.post;
   return <main className={styles.postContainer}>
