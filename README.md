@@ -47,7 +47,7 @@ sanity start
 Open [http://localhost:3333](http://localhost:3333) with your browser to view the server
 
 ### Overview
-The page is deployed here: [!Link](https://medium-clone-mu-one.vercel.app/)
+The page is deployed here: [Link](https://medium-clone-mu-one.vercel.app/)
 
 ### Authors
 * Chhuong Le
