@@ -105,3 +105,12 @@
   margin-left: 18%;
   margin-right: 18%;
 }
+
+.commentContainer {
+  margin-top: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 20px #ffc1178c;
+}

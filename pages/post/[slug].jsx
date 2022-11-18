@@ -85,10 +85,9 @@ function Post(props) {
           </label>
           <label className={styles.labelStyle}>
             <span className={styles.commentSpanStyle}>Email:</span> <br />
-            <input {...register("email", {required: "true"})}
+            <input {...register("email", {required: true})}
               className={styles.inputStyle}
               placeholder="Email..."
-              type="text"
               type="email"
             />
           </label>
@@ -117,10 +116,16 @@ function Post(props) {
         </form>
         )
       }
-      {/* comments */}
-      <div>
-        <h3>Comments</h3>
-        <hr />
+      {/* Comment section */}
+      <div className={styles.commentContainer}>
+        <h3 style={{fontSize:"30px", marginBottom:"-5px"}}>Comments</h3>
+        <hr style={{border:"1px solid rgba(90, 90, 90, 0.1)"}}/>
+        {post.comments.map((comment)=>{ return (
+          <div>
+            <p style={{paddingBottom: "10px"}}><span style={{color:"#ffc007"}}>{comment.name}:</span> {comment.comment}</p>
+          </div>
+        )
+        })}
       </div>
   </main>
   );
@@ -151,7 +156,7 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const query = `*[_type == "post" && slug.current == "my-first-post"][0]{
+  const query = `*[_type == "post" && slug.current == $slug][0]{
     _id,
     _createdAt,
     title,
