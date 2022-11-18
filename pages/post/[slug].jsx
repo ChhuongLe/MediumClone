@@ -41,12 +41,13 @@ function Post(props) {
     </div>
     <form className={styles.formContainer}>
       <input
-        {...register("id", {required: "true"})}
+       {...register("id", { required: true })}
+       aria-invalid={errors.id ? "true" : "false"}
         type="hidden" name="_id"
         value={post.id} />
       <label className={styles.labelStyle}>
         <span className={styles.commentSpanStyle}>Name:</span> <br />
-        <input {...register("name"), {required: "true"}}
+        <input {...register("name", {required: true})}
           className={styles.inputStyle}
           placeholder="Name..."
           type="text"
@@ -54,7 +55,7 @@ function Post(props) {
       </label>
       <label className={styles.labelStyle}>
         <span className={styles.commentSpanStyle}>Email:</span> <br />
-        <input {...register("email"), {required: "true"}}
+        <input {...register("email", {required: "true"})}
           className={styles.inputStyle}
           placeholder="Email..."
           type="text"
@@ -62,7 +63,7 @@ function Post(props) {
       </label>
       <label className={styles.labelStyle}>
         <span className={styles.commentSpanStyle}>Comment:</span> <br />
-        <textarea {...register("comment"), {required: true}} className={styles.inputStyle} placeholder="Comment..." type="text" rows={8}/>
+        <textarea {...register("comment", {required: true})} className={styles.inputStyle} placeholder="Comment..." type="text" rows={8}/>
       </label>
     </form>
   </main>
