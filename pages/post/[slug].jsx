@@ -2,16 +2,19 @@ import { sanityClient, urlFor } from '../../sanity';
 import Header from '../../components/Header';
 import styles from '../../styles/Posts.module.css';
 import PortableText from 'react-portable-text';
-import { useForm, submitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 
 function Post(props) {
-  const { register, handleSubmit, formState: {errors} } = useForm();
+  const { register, handleSubmit, formState: {errors} } = useForm({
+    defaultValues: {
+      name: '',
+      email: '',
+      comment: ''
+    }
+  });
 
-  const onSubmit = (data) => {
-    console.log("does this work")
-    console.log(data);
-  };
+  const onSubmit = (data) => console.log(data);
 
   const post = props.post;
   return (
@@ -47,10 +50,10 @@ function Post(props) {
       <form  onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
         {/*Hidden parameter that embeds an id that is specific to the current page*/}
         <input
-        {...register("id", { required: true })}
-        aria-invalid={errors.id ? "true" : "false"}
-          type="hidden" name="_id"
-          value={post.id} />
+          {...register("id", { required: true })}
+            type="hidden" name="_id"
+            value={post._id}
+        />
 
         <label className={styles.labelStyle}>
           <span className={styles.commentSpanStyle}>Name:</span> <br />
