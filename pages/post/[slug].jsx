@@ -117,6 +117,11 @@ function Post(props) {
         </form>
         )
       }
+      {/* comments */}
+      <div>
+        <h3>Comments</h3>
+        <hr />
+      </div>
   </main>
   );
 }
@@ -146,7 +151,7 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const query = `*[_type == "post" && slug.current == $slug][0]{
+  const query = `*[_type == "post" && slug.current == "my-first-post"][0]{
     _id,
     _createdAt,
     title,
@@ -154,6 +159,10 @@ export const getStaticProps = async ({ params }) => {
     name,
     image
    },
+   'comments' : *[
+     _type == "comment" &&
+     post._ref == ^._id &&
+     approved == true],
    description,
    mainImage,
    slug,
