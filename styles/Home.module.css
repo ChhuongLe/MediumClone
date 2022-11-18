@@ -1,9 +1,11 @@
 .banner {
   background-color: #ffc017;
   display: flex;
+  min-width: 400px;
 }
 .textContainer{
   margin-left: 45px;
+  padding-bottom: 15px;
 }
 .bannerHeader {
   margin-top: 0px;
@@ -11,12 +13,12 @@
   font-size: 100px;
   font-weight: 500;
 }
+
 .bannerText {
   font-size: 24px;
   font-family: Arial;
-  width: 380px;
-  margin-top: -50px;
-  padding-bottom: 30px;
+  width: 100%;
+  padding-bottom: 40px;
   font-weight: 100;
 }
 
@@ -49,7 +51,7 @@
   margin-right: 0;
   margin-left: 2%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(405px, 1fr));
   grid-gap: 25px;
 }
 
