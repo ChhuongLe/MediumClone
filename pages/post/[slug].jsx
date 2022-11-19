@@ -21,7 +21,7 @@ function Post(props) {
     types: {
       image: ({value}) => {
         return (
-          <SanityImage {..value} />
+          <SanityImage {...value} />
         )
       }
     }
