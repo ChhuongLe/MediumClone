@@ -17,6 +17,12 @@ function Post(props) {
   });
   const [submitted, setSubmitted] = useState(false);
 
+  const myPortableTextComponents = {
+    types: {
+      image: ({value}) => <img />
+    }
+  }
+
   const onSubmit = async(data) =>{
     await fetch('/api/createComment', {
       method: 'POST',

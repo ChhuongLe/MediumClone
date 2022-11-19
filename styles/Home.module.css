@@ -4,7 +4,7 @@
 .banner {
   background-color: #ffc017;
   display: flex;
-  min-width: 670px;
+  min-width: 720px;
 }
 .textContainer{
   margin-left: 45px;
@@ -44,7 +44,7 @@
   margin-left: auto;
   margin-right: 0;
   width: 40%;
-  max-width: 700px;
+  max-width: 730px;
 }
 
 @media (max-width: 975px) {
@@ -52,13 +52,23 @@
     display: none;
   }
 }
+
 .postsContainer {
   margin-top: 20px;
-  margin-right: 10%;
   margin-left: 10%;
+  margin-right: 10%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(411px, 1fr));
-  grid-gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-gap: 50px;
+}
+
+@media all and (max-width: 1330px) {
+  .postsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25%;
+    margin-right: 10%;
+  }
 }
 
 .linkStyle{
@@ -98,7 +108,8 @@
 .descriptor {
   margin: 3px 5px;
   font-family: Arial;
-  max-width: 400px;
+  width: 411px;
+  min-width: 400px;
 }
 
 .authorContainer{
