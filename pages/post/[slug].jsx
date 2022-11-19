@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { sanityClient, urlFor } from '../../sanity';
+import { useNextSanityImage } from 'next-sanity-image';
 import Header from '../../components/Header';
 import styles from '../../styles/Posts.module.css';
 import PortableText from 'react-portable-text';
@@ -15,6 +16,16 @@ function Post(props) {
     }
   });
   const [submitted, setSubmitted] = useState(false);
+
+  const portableTextComponents = {
+    types: {
+      image: ({value}) => {
+        return (
+          <SanityImage {..value} />
+        )
+      }
+    }
+  }
 
   const onSubmit = async(data) =>{
     await fetch('/api/createComment', {
@@ -38,7 +49,7 @@ function Post(props) {
       <img className={styles.mainImage} src={urlFor(post.mainImage).url()} alt=""/>
       <div className={styles.postContent}>
         <article className={styles.articleContainer}>
-          <h1 style={{fontSize:"50px", fontWeight:"400", marginBottom:"-5px"}}>{post.title}</h1>
+          <h1 style={{fontSize:"50px", fontWeight:"400", marginBottom: "10px"}}>{post.title}</h1>
           <h3 className={styles.postDescription}>{post.description}</h3>
         <div className={styles.authorContainer}>
           <img style={{width: "50px", borderRadius:"50%", marginRight:"-10px", marginBottom:"30px"}} src={urlFor(post.author.image).url()}/>
@@ -56,7 +67,7 @@ function Post(props) {
         </div>
         </article>
       </div>
-      <hr style={{marginLeft: "200px", marginRight: "200px", border:"#ffc017 2px solid"}}/>
+      <hr style={{marginLeft: "200px", marginRight: "200px", border:"#ffc017 2px solid", marginTop:"20px"}}/>
       {submitted ? (
         <div className={styles.submitStyle}>
           <h3 style={{marginLeft: "50px", fontSize: "30px"}}>Thank you for your comment!</h3>
@@ -65,9 +76,9 @@ function Post(props) {
       ) : (
           <form  onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
           <div style={{marginLeft: "-40px", marginBottom: "20px"}}>
-            <h3 style={{color: "#ffc017 ", fontSize: "16px", marginBottom: "-20px"}}>Enjoyed the article?</h3>
+            <h3 style={{color: "#ffc017 ", fontSize: "16px", marginTop: "20px"}}>Enjoyed the article?</h3>
             <h1>Leave a comment below!</h1>
-            <hr style={{border: "1px solid rgba(90, 90, 90, 0.1)", marginTop:"-15px"}}/>
+            <hr style={{border: "1px solid rgba(90, 90, 90, 0.1)"}}/>
           </div>
           {/*Hidden parameter that embeds an id that is specific to the current page*/}
           <input
@@ -118,11 +129,11 @@ function Post(props) {
       }
       {/* Comment section */}
       <div className={styles.commentContainer}>
-        <h3 style={{fontSize:"30px", marginBottom:"-5px"}}>Comments</h3>
-        <hr style={{border:"1px solid rgba(90, 90, 90, 0.1)"}}/>
+        <h3 style={{fontSize:"30px", marginBottom: "20px"}}>Comments</h3>
+        <hr style={{border:"1px solid rgba(90, 90, 90, 0.1)", marginBottom: "20px"}}/>
         {post.comments.map((comment, index)=>{ return (
           <div key={index}>
-            <p style={{paddingBottom: "10px"}}><span style={{color:"#ffc007"}}>{comment.name}:</span> {comment.comment}</p>
+            <p style={{paddingBottom: "20px"}}><span style={{color:"#ffc007"}}>{comment.name}:</span> {comment.comment}</p>
           </div>
         )
         })}

@@ -21,6 +21,10 @@
   margin-right: 25%;
 }
 
+.aritcleContainer.img {
+  width: 100px;
+}
+
 .postDescription {
   font-weight: 300;
   color: #5A5A5A;

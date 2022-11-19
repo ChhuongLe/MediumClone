@@ -1,7 +1,10 @@
+.container {
+  padding-bottom: 40px;
+}
 .banner {
   background-color: #ffc017;
   display: flex;
-  min-width: 400px;
+  min-width: 670px;
 }
 .textContainer{
   margin-left: 45px;
@@ -12,6 +15,7 @@
   padding-top: 100px;
   font-size: 100px;
   font-weight: 500;
+  margin-left: 13vw;
 }
 
 .bannerText {
@@ -20,6 +24,7 @@
   width: 100%;
   padding-bottom: 40px;
   font-weight: 100;
+  margin-left: 13vw;
 }
 
 .button {
@@ -31,7 +36,8 @@
   font-family: Arial;
   font-weight: 500;
   font-size: 20px;
-  width: 124px;
+  width: 134px;
+  margin-left: 13vw;
 }
 
 .logoImage {
@@ -48,10 +54,10 @@
 }
 .postsContainer {
   margin-top: 20px;
-  margin-right: 0;
-  margin-left: 2%;
+  margin-right: 10%;
+  margin-left: 10%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(405px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(411px, 1fr));
   grid-gap: 25px;
 }
 
@@ -90,8 +96,9 @@
   width: 500px;
 }
 .descriptor {
-  margin: 4px 0px;
+  margin: 3px 5px;
   font-family: Arial;
+  max-width: 400px;
 }
 
 .authorContainer{

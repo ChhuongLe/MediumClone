@@ -15,7 +15,7 @@ export default function Home(props) {
         <div className={styles.group}>
           <img className={styles.mainImage} src={urlFor(post.mainImage).url()} alt='' />
           <div className={styles.descriptionContainer}>
-            <p className={styles.descriptor}>{post.title}</p>
+            <h4 className={styles.descriptor}>{post.title}</h4>
             <p className={styles.descriptor}>{post.description}</p>
           </div>
           <div className={styles.authorContainer}>
@@ -27,7 +27,7 @@ export default function Home(props) {
   });
 
   return (
-    <div className="">
+    <div className= {styles.container}>
       <Head>
         <title>Medium Blog Clone</title>
         <link rel="icon" href="/favicon.ico" />
@@ -36,7 +36,7 @@ export default function Home(props) {
       <div className={styles.banner}>
         <div className={styles.textContainer}>
           <h2 className={styles.bannerHeader}>Stay curious.</h2>
-          <p className={styles.bannerText}>Discover stories, thinking, and expertise from writers on any topic.</p>
+          <p className={styles.bannerText}>Discover stories, thinking, and expertise<br /> from writers on any topic.</p>
           <div className={styles.button}>Start Reading</div>
         </div>
         <img className={styles.logoImage}src="https://accountabilitylab.org/wp-content/uploads/2020/03/Medium-logo.png" alt=""/>
