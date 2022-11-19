@@ -17,16 +17,6 @@ function Post(props) {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const portableTextComponents = {
-    types: {
-      image: ({value}) => {
-        return (
-          <SanityImage {...value} />
-        )
-      }
-    }
-  }
-
   const onSubmit = async(data) =>{
     await fetch('/api/createComment', {
       method: 'POST',
