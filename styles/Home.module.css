@@ -2,7 +2,7 @@
   padding-bottom: 40px;
 }
 .banner {
-  background-color: #ffc017;
+  background-color: #feb814;
   display: flex;
   min-width: 720px;
 }
@@ -44,6 +44,8 @@
   margin-left: auto;
   margin-right: 0;
   width: 40%;
+  height: auto;
+  object-fit: cover;
   max-width: 730px;
 }
 
