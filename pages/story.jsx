@@ -19,7 +19,7 @@ function Story () {
         <br/>
         We’re creating a new model for digital publishing. One that supports nuance, complexity, and vital storytelling without giving in to the incentives of advertising. It’s an environment that’s open to everyone but promotes substance and authenticity. And it’s where deeper connections forged between readers and writers can lead to discovery and growth. Together with millions of collaborators, we’re building a trusted and vibrant ecosystem fueled by important ideas and the people who think about them.
         </p>
-        <Image className={styles.contentImg}src={WordSphere} alt=""/>
+        <Image className={styles.contentImg} src={WordSphere} alt=""/>
       </div>
       <Footer />
     </div>

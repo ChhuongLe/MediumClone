@@ -1,5 +1,6 @@
- import Link from 'next/link';
+import Link from 'next/link';
 import style from '../styles/Header.module.css';
+import homeStyle from '../styles/Home.module.css';
 function Header() {
   return (
     <header className={style.header}>
@@ -11,7 +12,7 @@ function Header() {
         </div>
         <div className={style.container}>
           <div className={style.tab1}>
-              <Link href="/story">Our Story</Link>
+              <Link className={homeStyle.linkStyle}  href="/story">Our Story</Link>
               <p>Membership</p>
               <p> Write </p>
           </div>

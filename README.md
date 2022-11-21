@@ -49,5 +49,10 @@ Open [http://localhost:3333](http://localhost:3333) with your browser to view th
 ### Overview
 The page is deployed here: [Link](https://medium-clone-mu-one.vercel.app/)
 
+### Next Updates
+* Add more to the "Our Story" page
+* Implement authentication to allow logging in
+* Implement ability to write posts and send post requests to sanity API server
+
 ### Authors
 * Chhuong Le
