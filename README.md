@@ -11,7 +11,7 @@ In this I leveraged React, NextJS, and the Sanity framework to fully develop a f
 * [Dependencies](#Dependencies)
 * [Installing and Executing](#Installing-And-Executing)
 * [Overview](#Overview)
-* [Next Updates](#Next Updates)
+* [Next Updates](#Next-Updates)
 * [Authors](#Authors)
 <!--ts-->
 
