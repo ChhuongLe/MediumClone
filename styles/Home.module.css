@@ -79,6 +79,10 @@
   max-width: 611px;
 }
 
+.linkStyle:hover {
+  text-decoration: underline;
+}
+
 .mainImage{
   border-radius: 10px;
   transition: .3s ease-out;
